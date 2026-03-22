@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from dotenv import load_dotenv
 import os
-
+ALLOWED_HOSTS = ['*']  # Or your Render domain
 load_dotenv()
 
 from pathlib import Path
