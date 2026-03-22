@@ -1,10 +1,14 @@
 {
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.12"
+  "builds": [
+    {
+      "src": "marine_store/wsgi.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
-    { "src": "/(.*)", "dest": "/api/index.py" }
+    {
+      "src": "/(.*)",
+      "dest": "marine_store/wsgi.py"
+    }
   ]
 }
