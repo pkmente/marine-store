@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from dotenv import load_dotenv
 import os
-ALLOWED_HOSTS = ['marine-store-4.onrender.com']  # Or your Render domain
 load_dotenv()
 
 from pathlib import Path
@@ -32,7 +31,12 @@ SECRET_KEY = 'django-insecure-z3kzsajt^@5wj_$(m3r*0)$j*f!0+9e2b@7lof8hzp#^chy7-p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Hosts allowed to serve this app (Render + local)
+ALLOWED_HOSTS = [
+    "marine-store-4.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 RAZORPAY_KEY_ID = "rzp_test_RKb6QzrkBQocQo"
 RAZORPAY_KEY_SECRET = "Ks1NfWIyW2fhO4nT5plkKRIK"
