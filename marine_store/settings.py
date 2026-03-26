@@ -70,8 +70,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 
-
-
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dvucztr6n'),
     api_key=os.environ.get('CLOUDINARY_API_KEY','335212166476688'),
@@ -145,10 +143,11 @@ else:
     }
 
 
+
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://marinebasketstore.netlify.app"
+    "https://marinebasketstore.netlify.app",
 ]
+ 
 CORS_ALLOW_ALL_ORIGINS = True
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
