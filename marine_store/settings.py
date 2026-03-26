@@ -81,6 +81,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # MEDIA_URL = 'https://res.cloudinary.com/dvucztr6n/'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # must be first for CORS headers
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -88,7 +89,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     
 ]
 
@@ -146,9 +146,20 @@ else:
 
 CORS_ALLOWED_ORIGINS = [
     "https://marinebasketstore.netlify.app",
+    "https://marine-store-4.onrender.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
- 
-CORS_ALLOW_ALL_ORIGINS = True
+# Explicit allowlist keeps production safer than allow-all
+CORS_ALLOW_ALL_ORIGINS = False
+# If you send cookies, also enable:
+# CORS_ALLOW_CREDENTIALS = True
+# and add the frontend to CSRF_TRUSTED_ORIGINS below if using Django session auth
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://marinebasketstore.netlify.app",
+#     "https://marine-store-4.onrender.com",
+# ]
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
